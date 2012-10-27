@@ -1,0 +1,34 @@
+.ui-content {background: url('background.png') fixed no-repeat; width: 320px; padding: 0;}
+
+.ui-content {padding: 0; margin-bottom: 21px;}
+
+.logo {margin-top: 80px; margin-bottom: 20px;}
+.topo { margin-top:0px;}
+
+.ui-grid-a {background: url('footer.png'); width: 320px; height: 50px; border: none;}
+
+.ui-grid-a img {float: left; margin: 7px 0 0 30px;}
+
+.ui-grid-a a {width: 100%; height: 100%;}
+
+
+
+
+a:link, a:visited {
+ color:#333;
+ text-decoration: none;
+}
+
+a:hover {
+
+text-decoration: none;
+
+color:#AC863E;
+
+}
+
+a:active {
+color:#333;
+text-decoration: none
+
+}

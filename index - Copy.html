@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Cinema em Brasília</title> 
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<link rel="stylesheet" href="local.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+	<script type="text/javascript" src="ich.js"></script>
+	<script type="text/javascript" src="api.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+				jQuery('#load').hide();
+		
+				jQuery('#pesquisacinema').bind('submit', function(){
+					var filme = jQuery('#filme').val();
+					var local = jQuery('#local').val();
+					var data = jQuery('#data').val();
+					controle(filme, local, data);
+					$.mobile.changePage( "#segunda", { transition: "flip"} );
+					return false;
+				});
+				
+				jQuery('a.filme').live('click', function(){
+					var filme = jQuery(this).attr('id');
+					var data = jQuery('#data').val();
+					if(data==''){
+						alert('Escolha uma data!');
+					} else {
+						pesquisaFilme(filme, data);
+						return false;
+					}
+				});
+				
+				jQuery('a.cinema').live('click', function(){
+					var local = jQuery(this).attr('id');
+					var data = jQuery('#data').val();
+					if(data==''){
+						alert('Escolha uma data!');
+					} else {
+						pesquisaLocal(local, data);
+						return false;
+					}
+				});
+		
+			});
+		</script>
+</head> 
+<body> 
+
+<div data-role="page" id="primeira">
+
+	<div data-role="content">	
+	
+		<img class="logo" src="logo.png" />
+	
+		<form id="pesquisacinema">
+			<p><select id="data" name="data"></select><label for="data"></label></p>
+			<p><select id="filme" name="filme"></select><label for="filme"></label></p>
+			<p><select id="local" name="local"></select><label for="local"></label></p>
+			<p><input type="submit" value="Pesquisar"/></p>
+		</form>
+		
+	<div class="ui-grid-a">
+		<div class="ui-block-a"><a href="http://brasilia.deboa.com/" target="_blank"><img src="logo-deboa.png" /></a></div>
+		<div class="ui-block-b"><a href="http://newsom.com.br/" target="_blank"><img src="logo-ns.png" /></a></div>
+	</div> 
+
+		
+	</div><!-- /content -->
+	
+</div><!-- /page -->
+
+
+
+<div data-role="page" id="segunda">
+
+		<div id="listafilmes">
+      
+		</div>
+		
+		<div id="ichfilme">
+		</div>
+		
+		<div id="nome">
+		</div>
+		
+		<div id="alert">
+		</div>
+		
+</div><!-- /page -->	
+		
+
+</body>
+</html>
